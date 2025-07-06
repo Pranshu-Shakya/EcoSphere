@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Logo = () => {
+function Logo() {
   return (
     <div>
-        <h1>Logo</h1>
+      <div className="text-2xl font-bold text-[#01523F]">EcoSphere</div>
     </div>
   )
 }
 
-export default Logo
+export default Logo

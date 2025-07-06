@@ -3,3 +3,26 @@
 button {
     cursor: pointer;
 }
+
+@keyframes fadeInLetter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-animate {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInLetter 0.4s forwards;
+}
+
+.letter-animate-delay-0 { animation-delay: 0s; }
+.letter-animate-delay-1 { animation-delay: 0.05s; }
+.letter-animate-delay-2 { animation-delay: 0.1s; }
+.letter-animate-delay-3 { animation-delay: 0.15s; }
+/* Add more delays as needed */
