@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { FaHome, FaUsers, FaSeedling, FaBullseye, FaFireAlt, FaLeaf } from 'react-icons/fa';
-
+import { FaSeedling, FaBullseye, FaFireAlt, FaLeaf } from 'react-icons/fa';
 
 function ProfileBottom() {
   const [activeTab, setActiveTab] = useState("Footprint");
@@ -16,15 +15,18 @@ function ProfileBottom() {
   const categories = ["Travel", "Energy", "Food", "Waste"];
 
   return (
-    <div className="bg-black text-white px-4 pt-4 pb-20 font-sans">
-      {/* === Tabs === */}
-      <div className="bg-[#1E1E1E] p-1 rounded-full flex justify-between text-sm font-medium mb-6">
+    <div style={{borderRadius:"10px"}} className="bg-green-100 text-white px-4 pt-6 pb-20 font-sans rounded-t-3xl  border border-green-100">
+      
+      {/* Tabs */}
+      <div className="bg-[#0c2d1a] border border-green-100 rounded-full flex justify-between text-sm font-medium mb-8 overflow-hidden">
         {["Achievements", "Reports", "Footprint"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 py-2 rounded-full transition-all ${
-              activeTab === tab ? "bg-purple-400 text-black" : "text-white"
+            className={`flex-1 py-2 transition-all duration-200 ${
+              activeTab === tab
+                ? "bg-[#BFFF00] text-[#012E1C] font-semibold"
+                : "text-lime-100 hover:bg-[#194d30]"
             }`}
           >
             {tab}
@@ -32,34 +34,34 @@ function ProfileBottom() {
         ))}
       </div>
 
-      {/* === Achievements === */}
+      {/* === Achievements Tab === */}
       {activeTab === "Achievements" && (
-        <div  className="grid grid-cols-2 gap-4 bg-black">
+        <div className="grid grid-cols-2 gap-4">
           {stats.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#1E1E1E] rounded-xl p-4 flex flex-col items-center text-center shadow"
+              className="bg-green-50 text-[#012E1C] rounded-xl p-4 flex flex-col items-center text-center shadow-md hover:shadow-lg transition"
             >
-              <div className="text-2xl mb-2 text-caribbeanGreen">{item.icon}</div>
+              <div className="text-2xl mb-2 text-[#0f7039]">{item.icon}</div>
               <p className="text-xl font-bold">{item.value}</p>
-              <p className="text-xs text-gray-400 mt-1">{item.label}</p>
+              <p className="text-xs text-green-900 mt-1">{item.label}</p>
             </div>
           ))}
         </div>
       )}
 
-      {/* === Reports === */}
+      {/* === Reports Tab === */}
       {activeTab === "Reports" && (
         <div>
-          {/* Header + Dropdowns */}
+          {/* Header & Filters */}
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">My Savings</h3>
+            <h3 className="text-lg font-semibold text-green-800">My Savings</h3>
             <div className="flex gap-2 text-sm">
-              <select className="bg-[#1E1E1E] text-white px-2 py-1 rounded-full border border-gray-700">
+              <select className="bg-[#0c2d1a] border border-green-100 text-green-100 px-3 py-1 rounded-full">
                 <option>All</option>
                 <option>Home</option>
               </select>
-              <select className="bg-[#1E1E1E] text-white px-2 py-1 rounded-full border border-gray-700">
+              <select className="bg-[#0c2d1a] border border-lime-500 text-green-100 px-3 py-1 rounded-full">
                 <option>2024</option>
                 <option>2023</option>
               </select>
@@ -72,10 +74,10 @@ function ProfileBottom() {
               <button
                 key={btn}
                 onClick={() => setFilter(btn)}
-                className={`px-4 py-1 rounded-full text-sm ${
+                className={`px-4 py-1 rounded-full text-sm transition ${
                   filter === btn
-                    ?  "bg-[#05C89C]"
-                    : "bg-[#1E1E1E] text-gray-300"
+                    ? "bg-[#BFFF00] text-green-900 font-semibold"
+                    : "bg-[#0c2d1a] text-green-200"
                 }`}
               >
                 {btn}
@@ -84,14 +86,14 @@ function ProfileBottom() {
           </div>
 
           {/* Progress Bars */}
-          <div className="bg-[#1E1E1E] rounded-xl p-4 space-y-4">
+          <div className="bg-[#154734] rounded-xl p-4 space-y-4 border border-green-100">
             {categories.map((cat) => (
               <div key={cat}>
-                <div className="flex justify-between text-sm text-gray-400 mb-1">
+                <div className="flex justify-between text-sm text-green-100 mb-1">
                   <span>{cat} (0%)</span>
                 </div>
-                <div className="w-full h-3 bg-gray-700 rounded-full overflow-hidden">
-                  <div className="bg-purple-400 h-3 w-[0%]"></div>
+                <div className="w-full h-3 bg-green-900 rounded-full overflow-hidden">
+                  <div className="bg-lime-400 h-3 w-[0%]"></div>
                 </div>
               </div>
             ))}
@@ -99,10 +101,10 @@ function ProfileBottom() {
         </div>
       )}
 
-      {/* === Footprint === */}
+      {/* === Footprint Tab === */}
       {activeTab === "Footprint" && (
         <div className="flex flex-col items-center justify-center mt-12 text-center">
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-green-800">
             Your Carbon Footprint is not yet calculated!
           </p>
         </div>

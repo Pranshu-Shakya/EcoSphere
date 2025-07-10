@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const connectDB = async () => {
-    try {
-        await mongoose.connect(`${process.env.MONGODB_URI}/EcoSphere`, );
-        console.log("MongoDB connected successfully");
-    } catch (error) {
-        console.error("MongoDB connection failed:", error);
-        process.exit(1); // Exit process with failure
-    }
+
+    mongoose.connection.on("connected", () => {
+        console.log("MongoDB connection established successfully.");
+    });
+    
+    await mongoose.connect(`${process.env.MONGODB_URI}/EcoSphere`)
+
 }
 
 export default connectDB;

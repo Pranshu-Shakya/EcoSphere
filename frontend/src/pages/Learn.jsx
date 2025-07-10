@@ -1,7 +1,8 @@
+import LearnHeader from "../components/LearnHeader";
 function Learn() {
     return ( 
         <>
-        Learn
+        <LearnHeader/>
         </>
      );
 }

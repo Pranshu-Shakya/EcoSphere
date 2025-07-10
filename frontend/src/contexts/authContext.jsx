@@ -5,4 +5,4 @@ const authContext = createContext({
   setAuthUser: () => {},
 });
 
-export default authContext;
+export default authContext;

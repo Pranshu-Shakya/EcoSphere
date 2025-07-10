@@ -1,6 +1,6 @@
 // File: src/App.jsx
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { FiCalendar, FiUsers } from 'react-icons/fi';
 
 const initiatives = [
@@ -102,9 +102,11 @@ export default function Midsec() {
       </div>
 
       {/* Create Initiative Button */}
-      <div className="text-center mt-6">
-        <button className="bg-[#00DA93] text-white px-6 py-2 rounded-lg font-medium text-sm">+ Create Initiative</button>
-      </div>
+      <Link to="/Initiative">
+  <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-all">
+    + Create Initiative
+  </button>
+</Link>
     </div>
   );
 }

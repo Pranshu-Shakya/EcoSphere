@@ -4,6 +4,19 @@ button {
     cursor: pointer;
 }
 
+
+.eco-static-bg {
+  background: linear-gradient(
+    135deg,
+    #0B3D2E,  /* Deep pine green */
+    #1C6B4D,  /* Forest foliage */
+    #306547,  /* Medium sea green */
+    #1C6B4D,
+    #0B3D2E  /* Forest foliage */
+  );
+}
+
+
 @keyframes fadeInLetter {
   from {
     opacity: 0;
@@ -26,3 +39,4 @@ button {
 .letter-animate-delay-2 { animation-delay: 0.1s; }
 .letter-animate-delay-3 { animation-delay: 0.15s; }
 /* Add more delays as needed */
+

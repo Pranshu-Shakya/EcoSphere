@@ -1,73 +1,59 @@
-import React from 'react'
-import Midsec from '../components/Midsec'
-import Footer from '../components/Footer'
-import Nav from '../components/Navbar'
+import HomeHero from '../components/HomeHero';
+import IntroLeftHome from '../components/IntroLeftHome';
+import calcImg from '../assets/calculator-image.png'; 
+import comImg from '../assets/community-image.png'
+import initImg from '../assets/initiative-image.png'
+import learnImg from '../assets/learn-image.png'
+import shopImg from '../assets/shopping-green.png'
+import IntroRightHome from '../components/IntroRightHome';
+
 
 const Home = () => {
- 
-      return (
-
-        <>
-        <div><Nav/></div>
-
-         <div className="min-h-screen bg-[#00DA93] font-[system-ui,Roboto,Segoe_UI,Arial,sans-serif] text-white">
-     
-
-      {/* Main Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-20 py-16 bg-[#00DA93] text-white">
-        {/* Left Content */}
-        <div className="md:w-1/2 space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-  {Array.from("Your Journey to").map((char, i) => (
-    <span key={i} className={`letter-animate letter-animate-delay-${i}`}>{char}</span>
-  ))}
-  <br />
-  <span className="text-[#FFAD40]">
-    {Array.from("Sustainable Living").map((char, i) => (
-      <span key={i} className={`letter-animate letter-animate-delay-${i + 500}`}>{char}</span>
-    ))}
-  </span>
-</h1>
-
-          <p className="text-lg">
-            Track your carbon footprint, join eco-communities, create sustainable
-            products, and learn from experts – all in one platform.
-          </p>
-          <div className="flex space-x-4">
-            <button className="bg-white text-[#00DA93] px-6 py-2 rounded-md font-semibold shadow hover:opacity-90 transition">
-              Start Tracking
-            </button>
-            <button className="border border-white px-6 py-2 rounded-md font-semibold hover:bg-white hover:text-[#00DA93] transition">
-              Join Community
-            </button>
-          </div>
-        </div>
-
-        {/* Right Image */}
-        <div className="md:w-1/2 mt-10 md:mt-0">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/024/472/833/large_2x/green-earth-day-on-isolated-white-background-care-for-the-environment-and-ecology-resources-that-are-sustainable-renewable-and-green-graphic-resource-generative-ai-free-photo.jpg"
-            alt="Sustainable Living"
-            className="rounded-xl shadow-lg w-full h-auto"
-          />
-        </div>
-      </section>
-    </div>
-
+  return (
     <div>
-         <Midsec/>
-    </div>
-    <div>
-      <Footer/>
-    </div>
-    
-  
-    </>
-        
-        
-   
-  )
+      <HomeHero />
 
-}
 
-export default Home
+      <div className='eco-static-bg'>
+        <h1 className="text-white text-3xl md:text-5xl font-extrabold tracking-wide mb-4 text-shadow p-5 text-center mb-15">
+          We help you with?
+        </h1>
+        <IntroLeftHome
+          header="Carbon Footprint Calculator"
+          info="The Carbon Footprint Calculator is a simple yet powerful tool within EcoSphere that helps users estimate their environmental impact based on their lifestyle choices. By entering data about daily activities such as transportation, energy usage, diet, and consumption habits, users receive a personalized carbon footprint score."
+          visitLink="/eco-calculator"
+          imgURL={calcImg}
+
+        />
+        <IntroRightHome
+          header="Communities support"
+          info="The Community feature in EcoSphere helps users connect with others who share a passion for sustainability. Users can join or create groups based on interests like clean energy, waste reduction, or eco-friendly living. These communities enable members to share tips, take part in eco-challenges, discuss ideas, and collaborate on green projects. It’s a space to learn, act, and grow together—turning individual actions into collective impact."
+          visitLink="/communities"
+          imgURL={comImg}
+        />
+        <IntroLeftHome
+          header="Take and join Intiatives"
+          info='The Initiatives feature empowers users to take real-world climate action by creating and joining impactful sustainability campaigns. Whether is organizing a local tree plantation drive, a community clean-up, or a plastic-free challenge, users can launch initiatives aligned with their values. Others can discover, join, and contribute to these causes—making it easy to collaborate, track progress, and drive meaningful change together.'
+          visitLink='/initiatives'
+          imgURL={initImg} />
+        <IntroRightHome
+          header='Learn and grow with us'
+          info="The Learn & Grow section is your personal sustainability classroom—designed to educate, inspire, and empower. Explore curated articles, engaging videos, and interactive tips on eco-conscious living, climate change, and green innovation. Whether you're a beginner or an enthusiast, this space helps you build knowledge and adopt habits that create lasting environmental impact."
+          visitLink="/learn"
+          imgURL={learnImg}
+        />
+        <IntroLeftHome
+          header='Recyled and Green Shop'
+          info="EcoShop is your dedicated marketplace for recycled and upcycled products made from waste. Discover a curated collection of eco-conscious items crafted from discarded materials—turning trash into treasure. Every product supports sustainability, empowers artisans, and helps reduce landfill waste. Shop smarter, live greener."
+          visitLink='/eco-shop'
+          imgURL={shopImg}
+        />
+      </div>
+
+    </div>
+
+  );
+
+};
+
+export default Home;
