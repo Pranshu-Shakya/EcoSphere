@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Rocket,
@@ -37,10 +37,20 @@ const faqs = [
 ];
 
 function Support() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [x,setx]=useState(0);
+
+  useEffect(()=>{//if the faqs incrwses or are fetched 
+    setx(faqs.length)
+  },[faqs])
+
+  const [activeIndex, setActiveIndex] = useState(() => Array(x).fill(null));// array of statevar of faqs
 
   const toggleFAQ = (index) => {
-    setActiveIndex(index === activeIndex ? null : index);
+    setActiveIndex((prev)=>{
+      const next=[...prev];
+      next[index]=!next[index];
+      return next;
+    });
   };
 
   const helpTopics = [
@@ -100,7 +110,7 @@ function Support() {
               >
                 <span className="font-medium text-lg">{faq.question}</span>
               </button>
-              {activeIndex === idx && (
+              {activeIndex[idx] && (
                 <div className="px-4 py-3 text-gray-700">{faq.answer}</div>
               )}
             </div>
