@@ -26,6 +26,7 @@ import Collection from "./components/EcoShopComponents/Collection";
 import ChatBot from "./pages/ChatBot";
 import ChatBotImg from "./assets/chatbot.png";
 import IntitiaveInDetail from "./pages/IntiativeInDetail";
+import ScrollToTop from "./components/ScrollTop";
 
 function App() {
 	return (
@@ -33,6 +34,7 @@ function App() {
 			<ToastContainer position="top-right" theme="dark"/>
 			<Toaster position="bottom-right" theme="dark" richColors/>
 			<Navbar />
+			<ScrollToTop />
 			<Routes>
 				{/* general segment routes */}
 				<Route path="/" element={<Home />} />

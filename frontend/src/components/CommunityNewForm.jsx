@@ -11,6 +11,7 @@ const CommunityNewForm = () => {
     agenda: "",
     description: "",
     coverImage: "",
+    category:""
   });
 
   const [error, setError] = useState("");
@@ -55,6 +56,7 @@ const CommunityNewForm = () => {
       agenda: "",
       description: "",
       coverImage: "",
+      category:" ",
     });
 
     setError("");
@@ -78,7 +80,7 @@ const CommunityNewForm = () => {
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Community Name *"
+            placeholder="Community Name"
             className="w-full text-green-900 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
           />
 
@@ -87,7 +89,7 @@ const CommunityNewForm = () => {
             name="agenda"
             value={form.agenda}
             onChange={handleChange}
-            placeholder="Community Agenda *"
+            placeholder="Community Agenda "
             className="w-full text-green-900 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
           />
 
@@ -95,7 +97,7 @@ const CommunityNewForm = () => {
             name="description"
             value={form.description}
             onChange={handleChange}
-            placeholder="Short Description *"
+            placeholder="Short Description"
             rows={4}
             className="w-full text-green-900 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
           />
@@ -108,6 +110,30 @@ const CommunityNewForm = () => {
             placeholder="Cover Image URL (optional)"
             className="w-full text-green-900 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
           />
+
+          <div className="flex flex-wrap gap-4">
+            <select
+              name="category"
+              value={form.category}
+              onChange={handleChange}
+              className="w-full text-green-900 border-b border-green-800 focus:border-green-600 outline-none py-2"
+            >
+              <option value="All">Others</option>
+              <option value="Environment">Environment</option>
+              <option value="Energy">Energy</option>
+              <option value="Waste Management">Waste Management</option>
+              <option value="Sustainability">Sustainability</option>
+              <option value="Lifestyle">Lifestyle</option>
+              <option value="Food & Agriculture">Food & Agriculture</option>
+              <option value="Water Resources">Water Resources</option>
+              <option value="Technology & Innovation">Technology & Innovation</option>
+              <option value="Health & Wellness">Health & Wellness</option>
+              <option value="Community Development">Community Development</option>
+              <option value="Education & Awareness">Education & Awareness</option>
+              <option value="Biodiversity">Biodiversity</option>
+              <option value="Policy & Governance">Policy & Governance</option>
+            </select>
+          </div>
 
           <button
             type="submit"

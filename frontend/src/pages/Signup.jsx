@@ -8,7 +8,7 @@ const Signup = () => {
 	const { token, setToken, backendUrl, navigate } = React.useContext(ShopContext);
 	const [name, setName] = React.useState("");
 	const [email, setEmail] = React.useState("");
-	const [phone,setPhone]=React.useState("");
+	const [phone, setPhone] = React.useState("");
 	const [password, setPassword] = React.useState("");
 
 	const handleSubmit = async (e) => {
@@ -40,21 +40,27 @@ const Signup = () => {
 	}, [token]);
 
 	return (
-		<div className="flex items-center justify-center min-h-screen bg-green-50 eco-static-bg">
-			<div className="bg-green-100 p-8 rounded-2xl shadow-lg w-full max-w-md">
-				<h2 className="text-3xl font-bold text-green-900 mb-4 text-center">
-					Join EcoSphere 
-				</h2>
-				<p className="text-green-800 text-center mb-6">
-					Track impact. Build community. Create green change.
+		<div className="eco-static-bg py-10 flex flex-col items-center justify-center px-6">
+
+			{/* Header */}
+			<div className="text-center mb-8">
+				<h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+					 Welcome to EcoSphere
+				</h1>
+				<p className="text-green-100 text-lg md:text-xl leading-relaxed max-w-2xl">
+					Join hands today to build a greener tomorrow.
 				</p>
+			</div>
+
+			{/* Form */}
+			<div className="bg-green-100 p-8 rounded-2xl shadow-lg w-full max-w-md">
 				<form onSubmit={handleSubmit} className="space-y-4">
 					<input
 						type="text"
 						name="name"
 						placeholder="Full Name"
 						onChange={(e) => setName(e.target.value)}
-						className="w-full text-green-800 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
+						className="w-full text-green-800 border-b border-green-800 focus:border-green-600 outline-none py-2"
 						required
 					/>
 					<input
@@ -62,7 +68,15 @@ const Signup = () => {
 						name="email"
 						placeholder="Email"
 						onChange={(e) => setEmail(e.target.value)}
-						className="w-full text-green-800 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
+						className="w-full text-green-800 border-b border-green-800 focus:border-green-600 outline-none py-2"
+						required
+					/>
+					<input
+						type="text"
+						name="phone"
+						placeholder="WhatsApp Number"
+						onChange={(e) => setPhone(e.target.value)}
+						className="w-full text-green-800 border-b border-green-800 focus:border-green-600 outline-none py-2"
 						required
 					/>
 					<input
@@ -78,7 +92,7 @@ const Signup = () => {
 						name="password"
 						placeholder="Password"
 						onChange={(e) => setPassword(e.target.value)}
-						className="w-full text-green-800 border-b-1 border-green-800 focus:border-green-600 outline-none py-2"
+						className="w-full text-green-800 border-b border-green-800 focus:border-green-600 outline-none py-2"
 						required
 					/>
 					<button
@@ -97,6 +111,7 @@ const Signup = () => {
 			</div>
 		</div>
 	);
+
 };
 
 export default Signup;

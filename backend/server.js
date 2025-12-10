@@ -17,7 +17,7 @@ import initiativeRouter from './routes/initiative.route.js'
 import ecoRouter from './routes/ecoAI.route.js';
 
 import learnRouter from './routes/learn.route.js';
-import articleModel from './models/article.model.js';
+import Community from './models/community.model.js';
 import Initiative from './models/Initiative.model.js';
 
 //app config
@@ -57,6 +57,7 @@ app.get('/', (req, res) => {
 app.get("/cleardb", async(req,res)=>{
   try{
     await Initiative.deleteMany({});
+    await Community.deleteMany({});
     res.json({message:"success"});
   }catch(err){
     res.json({message:"error"});

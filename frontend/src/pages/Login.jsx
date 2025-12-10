@@ -33,14 +33,18 @@ const Login = () => {
 	}, [token]);
 
 	return (
-		<div className="flex items-center justify-center min-h-screen bg-green-50 eco-static-bg">
-			<div className="bg-green-100 p-8 rounded-2xl shadow-lg w-full max-w-md">
-				<h2 className="text-3xl font-bold text-green-900 mb-4 text-center">
-					Welcome Again
-				</h2>
-				<p className="text-green-800 text-center mb-6">
-					Login to EcoSphere continue your sustainable journey
+		<div className="flex flex-col items-center px-6 justify-center py-10 bg-green-50 eco-static-bg">
+			{/* Header */}
+			<div className="text-center mb-8">
+				<h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+					 Welcome back to EcoSphere
+				</h1>
+				<p className="text-green-100 text-lg md:text-xl leading-relaxed max-w-2xl">
+					Your login today can bring change for tomorrow
 				</p>
+			</div>
+			<div className="bg-green-100 p-8 rounded-2xl shadow-lg w-full max-w-md">
+				
 				<form onSubmit={handleSubmit} className="space-y-4">
 					<input
 						type="email"
