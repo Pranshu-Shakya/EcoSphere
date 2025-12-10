@@ -37,10 +37,7 @@ const memberAction = async (req, res) => {
   try {
     const { initiativeId, userId, action } = req.body;
     // Find the initiative and update its members based on the action
-<<<<<<< HEAD
-=======
 
->>>>>>> e3a2556 (final updates)
     const initiative = await Initiative.findById(initiativeId);
     if(userId==initiative.leader){
         res.status(200).json("You are the leader of this initiative.");
@@ -57,6 +54,8 @@ const memberAction = async (req, res) => {
         { $addToSet: { initiatives: initiativeId } },
         { new: true }
       );
+
+
     } else if (action === "leave") {
       await Initiative.findByIdAndUpdate(initiativeId, {
         $pull: { members: userId },
@@ -76,7 +75,6 @@ const memberAction = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
 const fetchJoins = async (req, res) => {
   try {
     const {id} = req.params;
@@ -102,30 +100,3 @@ const fetchJoins = async (req, res) => {
 
 
 export { createInitiative, getInitiatives, memberAction,fetchJoins};
-=======
-const fetchJoins = async (req, res) => {
-  try {
-    const {id} = req.params;
-    const initiative = await  Initiative.findById(id);
-
-    if (!initiative) {
-      return res.status(404).json({ message: "Article not found" });
-    }
-
-    const joinCount = initiative.members.length;
-    const joinArray=initiative.members;
-
-   
-    return res.status(200).json({
-      joins:joinCount,
-      joinArray:joinArray
-   
-    });
-  } catch (err) {
-    return res.status(500).json({ message: "Server error" });
-  }
-};
-
-
-export { createInitiative, getInitiatives, memberAction,fetchJoins};
->>>>>>> e3a2556 (final updates)

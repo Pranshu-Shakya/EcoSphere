@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { ShopContext } from '../contexts/ShopContext';
-import jwtDecode from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 
 function InitiativeInDetail() {
   const location = useLocation();
